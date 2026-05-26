@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VaporZone Dubai — #1 Vape Shop Online | Free Delivery UAE</title>
+<meta name="description" content="Premium Vapes, IQOS, TEREA & E-Liquids with same-day delivery across Dubai, Abu Dhabi & all UAE. Authentic products, best prices guaranteed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a28;--bg4:#222235;
+  --accent:#00d4ff;--accent2:#7c3aed;--accent3:#f59e0b;
+  --gradient:linear-gradient(135deg,#00d4ff,#7c3aed);
+  --gradient2:linear-gradient(135deg,#7c3aed,#ec4899);
+  --text:#ffffff;--text2:#a0a0b8;--text3:#6b6b80;
+  --card:#15151f;--card-hover:#1e1e2e;
+  --border:#2a2a3d;--radius:16px;--radius-sm:10px;
+  --shadow:0 8px 32px rgba(0,0,0,.4);
+  --glow:0 0 30px rgba(0,212,255,.15);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+
+/* ANNOUNCEMENT BAR */
+.announce{background:var(--gradient);padding:10px;text-align:center;font-size:.85rem;font-weight:600;letter-spacing:.5px;position:relative;z-index:100}
+.announce span{animation:pulse-text 2s infinite}
+@keyframes pulse-text{0%,100%{opacity:1}50%{opacity:.7}}
+
+/* NAVBAR */
+.nav{position:sticky;top:0;z-index:99;background:rgba(10,10,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+.nav.scrolled{background:rgba(10,10,15,.98);box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:44px;height:44px;background:var(--gradient);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:#fff}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text)}
+.logo-text span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.9rem;font-weight:500;transition:all .3s;position:relative}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gradient);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:16px}
+.nav-search{background:var(--bg3);border:1px solid var(--border);border-radius:50px;padding:10px 16px;display:flex;align-items:center;gap:8px;width:220px;cursor:pointer;transition:all .3s}
+.nav-search:hover,.nav-search:focus-within{border-color:var(--accent);box-shadow:var(--glow)}
+.nav-search input{background:none;border:none;color:var(--text);font-size:.85rem;width:100%;outline:none}
+.nav-search input::placeholder{color:var(--text3)}
+.nav-search i{color:var(--text3);font-size:.85rem}
+.nav-icon{width:42px;height:42px;border-radius:12px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);cursor:pointer;transition:all .3s;position:relative;text-decoration:none}
+.nav-icon:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.nav-icon .badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:var(--accent2);color:#fff;font-size:.65rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:200}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:all .3s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE MENU */
+.mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:380px;height:100vh;background:var(--bg2);z-index:150;padding:80px 30px 30px;transition:right .4s cubic-bezier(.25,.8,.25,1);overflow-y:auto;border-left:1px solid var(--border)}
+.mobile-menu.active{right:0}
+.mobile-menu-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:140;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu-overlay.active{opacity:1;pointer-events:all}
+.mobile-menu a{display:flex;align-items:center;gap:12px;padding:16px 0;color:var(--text);text-decoration:none;font-size:1.05rem;font-weight:500;border-bottom:1px solid var(--border);transition:color .3s}
+.mobile-menu a i{width:24px;color:var(--accent)}
+.mobile-menu a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden;padding:40px 24px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(124,58,237,.15),transparent 60%),radial-gradient(ellipse at 30% 50%,rgba(0,212,255,.1),transparent 60%);pointer-events:none}
+.hero-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particle{position:absolute;width:4px;height:4px;background:var(--accent);border-radius:50%;opacity:.3;animation:float-up linear infinite}
+@keyframes float-up{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.3}90%{opacity:.3}100%{transform:translateY(-20vh) scale(1);opacity:0}}
+.hero-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.3);border-radius:50px;padding:8px 18px;margin-bottom:20px;font-size:.8rem;color:var(--accent);font-weight:600}
+.hero-badge i{font-size:.65rem;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:3.8rem;font-weight:800;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#a0a0b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 em{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+.hero-desc{font-size:1.15rem;color:var(--text2);margin-bottom:32px;line-height:1.7;max-width:520px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:14px;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none}
+.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 4px 20px rgba(0,212,255,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,212,255,.4)}
+.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:40px}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat .label{font-size:.8rem;color:var(--text3);margin-top:4px}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-glow{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(0,212,255,.2),transparent 70%);border-radius:50%;animation:glow-pulse 3s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:.8}}
+.hero-card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:40px;width:100%;max-width:480px;box-shadow:var(--shadow);overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient)}
+.hero-card-img{width:100%;height:280px;background:var(--bg3);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative;overflow:hidden}
+.hero-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,.05),rgba(124,58,237,.05));border-radius:16px}
+.product-placeholder{font-size:5rem;opacity:.15;position:absolute}
+.product-icon-main{font-size:4rem;position:relative;z-index:1;filter:drop-shadow(0 0 20px rgba(0,212,255,.3))}
+.hero-card-info h3{font-size:1.2rem;margin-bottom:8px}
+.hero-card-info .price{font-size:1.5rem;font-weight:800;color:var(--accent)}
+.hero-card-info .price s{font-size:1rem;color:var(--text3);font-weight:400;margin-left:8px}
+.hero-card-tags{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.hero-card-tags span{font-size:.75rem;padding:4px 12px;border-radius:20px;background:rgba(0,212,255,.1);color:var(--accent);font-weight:500}
+.float-card{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);animation:float 3s ease-in-out infinite;z-index:2}
+.float-card.fc1{top:20px;right:-20px;animation-delay:0s}
+.float-card.fc2{bottom:40px;left:-20px;animation-delay:1s}
+.float-card i{font-size:1.2rem}
+.float-card .fc-text{font-size:.8rem;font-weight:600}
+.float-card .fc-sub{font-size:.7rem;color:var(--text3)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* TRUST BAR */
+.trust{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 0;overflow:hidden}
+.trust-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;color:var(--text2);font-size:.85rem;font-weight:500;white-space:nowrap}
+.trust-item i{font-size:1.2rem;color:var(--accent)}
+
+/* SECTION COMMON */
+section{padding:80px 24px}
+.section-header{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-tag{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-tag i{font-size:.5rem}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:2.6rem;font-weight:800;margin-bottom:16px;line-height:1.2}
+.section-desc{color:var(--text2);font-size:1.05rem;line-height:1.7}
+
+/* CATEGORIES */
+.categories{background:var(--bg)}
+.cat-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cat-card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:center;cursor:pointer;transition:all .4s;overflow:hidden;text-decoration:none;color:var(--text)}
+.cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);transform:scaleX(0);transition:transform .4s}
+.cat-card:hover::before{transform:scaleX(1)}
+.cat-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:var(--glow)}
+.cat-icon{width:72px;height:72px;border-radius:20px;background:var(--bg3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.8rem;color:var(--accent);transition:all .3s}
+.cat-card:hover .cat-icon{background:rgba(0,212,255,.1);transform:scale(1.1)}
+.cat-card h3{font-size:1.05rem;margin-bottom:6px;font-weight:600}
+.cat-card p{font-size:.8rem;color:var(--text3)}
+.cat-badge{position:absolute;top:16px;right:16px;background:var(--accent2);color:#fff;font-size:.7rem;padding:4px 10px;border-radius:20px;font-weight:600}
+
+/* PRODUCTS */
+.products{background:var(--bg2)}
+.products-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .4s;cursor:pointer}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--accent)}
+.product-img{height:220px;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-img i{font-size:3.5rem;color:var(--text3);opacity:.3}
+.product-tag{position:absolute;top:12px;left:12px;font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:8px;text-transform:uppercase}
+.tag-sale{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff}
+.tag-new{background:var(--gradient);color:#fff}
+.tag-hot{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff}
+.product-actions{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:8px;opacity:0;transform:translateX(20px);transition:all .3s}
+.product-card:hover .product-actions{opacity:1;transform:translateX(0)}
+.product-action{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;color:var(--bg);font-size:.85rem;transition:all .2s}
+.product-action:hover{background:var(--accent);color:#fff}
+.product-body{padding:20px}
+.product-cat{font-size:.75rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.product-name{font-size:.95rem;font-weight:600;margin-bottom:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-rating{display:flex;align-items:center;gap:4px;margin-bottom:10px}
+.product-rating i{font-size:.75rem;color:var(--accent3)}
+.product-rating span{font-size:.8rem;color:var(--text3);margin-left:4px}
+.product-price{display:flex;align-items:baseline;gap:8px}
+.product-price .current{font-size:1.3rem;font-weight:800;color:var(--accent)}
+.product-price .old{font-size:.9rem;color:var(--text3);text-decoration:line-through}
+.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.add-to-cart{display:flex;align-items:center;gap:6px;background:var(--gradient);color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .3s}
+.add-to-cart:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(0,212,255,.3)}
+.product-delivery{font-size:.7rem;color:var(--text3);display:flex;align-items:center;gap:4px}
+.product-delivery i{color:var(--accent)}
+
+/* FEATURES */
+.features{background:var(--bg)}
+.features-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;transition:all .4s;position:relative;overflow:hidden}
+.feature-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gradient);transform:scaleX(0);transition:transform .4s}
+.feature-card:hover::after{transform:scaleX(1)}
+.feature-card:hover{transform:translateY(-6px);box-shadow:var(--glow)}
+.feature-icon{width:56px;height:56px;border-radius:16px;background:rgba(0,212,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--accent);margin-bottom:16px}
+.feature-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.feature-card p{font-size:.85rem;color:var(--text2);line-height:1.6}
+
+/* DELIVERY MAP */
+.delivery{background:var(--bg2);position:relative;overflow:hidden}
+.delivery-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.delivery-map{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;min-height:400px;display:flex;align-items:center;justify-content:center}
+.map-placeholder{text-align:center}
+.map-placeholder i{font-size:6rem;color:var(--accent);opacity:.3;margin-bottom:16px;display:block}
+.map-placeholder p{color:var(--text3);font-size:.9rem}
+.delivery-cities{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.delivery-city{display:flex;align-items:center;gap:10px;background:var(--bg3);border-radius:10px;padding:12px 16px}
+.delivery-city i{color:var(--accent);font-size:.9rem}
+.delivery-city span{font-size:.9rem;font-weight:500}
+.delivery-city .time{margin-left:auto;font-size:.75rem;color:var(--accent);font-weight:600}
+.delivery-content h2{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:16px;line-height:1.2}
+.delivery-content p{color:var(--text2);margin-bottom:24px;line-height:1.7}
+.delivery-features{display:flex;flex-direction:column;gap:14px}
+.del-feat{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+.del-feat i{color:var(--accent);font-size:1.1rem;width:24px}
+.del-feat span{font-size:.9rem;font-weight:500}
+
+/* REVIEWS */
+.reviews{background:var(--bg)}
+.reviews-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .3s}
+.review-card:hover{border-color:var(--accent);box-shadow:var(--glow)}
+.review-stars{display:flex;gap:3px;margin-bottom:14px}
+.review-stars i{color:var(--accent3);font-size:.9rem}
+.review-text{font-size:.92rem;color:var(--text2);line-height:1.7;margin-bottom:16px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:42px;height:42px;border-radius:12px;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem}
+.review-name{font-size:.9rem;font-weight:600}
+.review-loc{font-size:.75rem;color:var(--text3)}
+
+/* BRANDS */
+.brands{background:var(--bg2);padding:50px 24px}
+.brands-inner{max-width:1400px;margin:0 auto;text-align:center}
+.brands-title{font-size:.85rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:30px}
+.brands-grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;align-items:center}
+.brand-item{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text3);opacity:.4;transition:all .3s;cursor:pointer}
+.brand-item:hover{opacity:1;color:var(--accent)}
+
+/* CTA */
+.cta{background:var(--bg);padding:80px 24px}
+.cta-box{max-width:1000px;margin:0 auto;background:var(--gradient);border-radius:24px;padding:60px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.cta-box h2{font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:800;margin-bottom:16px;position:relative}
+.cta-box p{font-size:1.1rem;opacity:.9;margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto;position:relative}
+.cta-box .btn{background:rgba(0,0,0,.3);color:#fff;border:2px solid rgba(255,255,255,.3);font-size:1rem;padding:18px 40px;position:relative}
+.cta-box .btn:hover{background:rgba(0,0,0,.5);border-color:#fff;transform:translateY(-3px)}
+
+/* FOOTER */
+.footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 24px 0}
+.footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand p{color:var(--text2);font-size:.9rem;margin:16px 0 20px;line-height:1.7}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:40px;height:40px;border-radius:12px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);text-decoration:none;transition:all .3s;font-size:.9rem}
+.footer-social a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.footer-col h4{font-size:.9rem;font-weight:700;margin-bottom:16px;color:var(--text)}
+.footer-col a{display:block;color:var(--text2);text-decoration:none;font-size:.85rem;padding:6px 0;transition:color .3s}
+.footer-col a:hover{color:var(--accent)}
+.footer-contact p{display:flex;align-items:center;gap:8px;color:var(--text2);font-size:.85rem;margin-bottom:10px}
+.footer-contact i{color:var(--accent);width:16px}
+.footer-bottom{max-width:1400px;margin:40px auto 0;padding:20px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-bottom p{color:var(--text3);font-size:.8rem}
+.payment-methods{display:flex;gap:12px;align-items:center}
+.payment-methods i{font-size:1.6rem;color:var(--text3);opacity:.5}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:90;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;transition:all .3s;text-decoration:none;animation:wa-bounce 2s infinite}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
+@keyframes wa-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* SCROLL TO TOP */
+.scroll-top{position:fixed;bottom:24px;left:24px;z-index:90;width:46px;height:46px;border-radius:14px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);cursor:pointer;transition:all .3s;opacity:0;transform:translateY(20px);pointer-events:none}
+.scroll-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.scroll-top:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.25,.8,.25,1)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1200px){
+  .hero h1{font-size:3rem}
+  .cat-grid,.features-grid{grid-template-columns:repeat(2,1fr)}
+  .products-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:992px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-desc{margin:0 auto 32px}
+  .hero-btns{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{margin-top:40px}
+  .float-card.fc1{right:10px;top:10px}
+  .float-card.fc2{left:10px;bottom:20px}
+  .delivery-inner{grid-template-columns:1fr}
+  .delivery-map{order:2}
+  .delivery-content{text-align:center}
+  .delivery-cities{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .nav-search{display:none}
+  .hamburger{display:flex}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .section-title{font-size:2rem}
+}
+@media(max-width:640px){
+  .hero{min-height:auto;padding:30px 16px 50px}
+  .hero h1{font-size:2.2rem}
+  .hero-desc{font-size:1rem}
+  .hero-stats{gap:24px;flex-wrap:wrap}
+  .hero-stat .num{font-size:1.5rem}
+  .hero-btns .btn{padding:14px 24px;font-size:.9rem;width:100%}
+  .cat-grid,.features-grid{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .delivery-cities{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .trust-inner{gap:24px}
+  section{padding:50px 16px}
+  .hero-card{padding:24px}
+  .hero-card-img{height:200px}
+  .cta-box{padding:40px 24px}
+  .cta-box h2{font-size:1.8rem}
+  .float-card{display:none}
+  .announce{font-size:.75rem;padding:8px 12px}
+  .nav-inner{height:60px;padding:0 16px}
+  .logo-text{font-size:1.1rem}
+  .logo-icon{width:36px;height:36px;font-size:1.1rem}
+}
+@media(max-width:400px){
+  .products-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.8rem}
+  .hero-stat .num{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <span><i class="fas fa-bolt"></i> FREE DELIVERY on Orders Above AED 100 | Same-Day Delivery Across UAE <i class="fas fa-bolt"></i></span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">VZ</div>
+      <div class="logo-text">Vapor<span>Zone</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#delivery">Delivery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search products...">
+      </div>
+      <a href="#" class="nav-icon" title="Account"><i class="fas fa-user"></i></a>
+      <a href="#" class="nav-icon" title="Wishlist"><i class="fas fa-heart"></i><span class="badge">3</span></a>
+      <a href="#" class="nav-icon" title="Cart"><i class="fas fa-shopping-bag"></i><span class="badge">2</span></a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#categories" onclick="toggleMenu()"><i class="fas fa-th-large"></i> Categories</a>
+  <a href="#products" onclick="toggleMenu()"><i class="fas fa-box"></i> Products</a>
+  <a href="#delivery" onclick="toggleMenu()"><i class="fas fa-truck"></i> Delivery</a>
+  <a href="#reviews" onclick="toggleMenu()"><i class="fas fa-star"></i> Reviews</a>
+  <a href="#contact" onclick="toggleMenu()"><i class="fas fa-phone"></i> Contact</a>
+  <a href="#"><i class="fas fa-search"></i> Search</a>
+  <a href="#"><i class="fas fa-user"></i> My Account</a>
+  <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+  <a href="#"><i class="fas fa-shopping-bag"></i> Cart (2)</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-in">
+      <div class="hero-badge"><i class="fas fa-circle"></i> #1 Vape Store in UAE</div>
+      <h1>Premium Vapes <em>Delivered</em> to Your Door</h1>
+      <p class="hero-desc">Discover authentic vapes, IQOS, TEREA & e-liquids from top brands with lightning-fast same-day delivery across Dubai, Abu Dhabi & all UAE.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+        <a href="#categories" class="btn btn-outline"><i class="fas fa-th-large"></i> Browse Categories</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">5000+</div><div class="label">Products</div></div>
+        <div class="hero-stat"><div class="num">50K+</div><div class="label">Happy Customers</div></div>
+        <div class="hero-stat"><div class="num">2 Hr</div><div class="label">Delivery</div></div>
+        <div class="hero-stat"><div class="num">100%</div><div class="label">Authentic</div></div>
+      </div>
+    </div>
+    <div class="hero-visual fade-in">
+      <div class="hero-glow"></div>
+      <div class="hero-card">
+        <div class="float-card fc1">
+          <i class="fas fa-truck" style="color:var(--accent)"></i>
+          <div><div class="fc-text">Free Delivery</div><div class="fc-sub">Orders above AED 100</div></div>
+        </div>
+        <div class="float-card fc2">
+          <i class="fas fa-shield-halved" style="color:#27ae60"></i>
+          <div><div class="fc-text">100% Original</div><div class="fc-sub">Guaranteed authentic</div></div>
+        </div>
+        <div class="hero-card-img">
+          <div class="product-placeholder">&#x2601;</div>
+          <i class="fas fa-wind product-icon-main" style="color:var(--accent)"></i>
+        </div>
+        <div class="hero-card-info">
+          <h3>IQOS ILUMA i Prime</h3>
+          <div class="price">AED 349 <s>AED 449</s></div>
+          <div class="hero-card-tags">
+            <span>20% OFF</span>
+            <span>Free Delivery</span>
+            <span>In Stock</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="fas fa-shield-halved"></i> 100% Authentic Products</div>
+    <div class="trust-item"><i class="fas fa-truck-fast"></i> Same-Day Delivery</div>
+    <div class="trust-item"><i class="fas fa-rotate-left"></i> Easy Returns</div>
+    <div class="trust-item"><i class="fas fa-lock"></i> Secure Payment</div>
+    <div class="trust-item"><i class="fas fa-headset"></i> 24/7 Support</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-header fade-in">
+    <div class="section-tag"><i class="fas fa-circle"></i> SHOP BY CATEGORY</div>
+    <h2 class="section-title">Browse Our Collections</h2>
+    <p class="section-desc">Find exactly what you need from our curated collection of premium vaping products</p>
+  </div>
+  <div class="cat-grid">
+    <a href="#" class="cat-card fade-in">
+      <span class="cat-badge">Hot</span>
+      <div class="cat-icon"><i class="fas fa-wind"></i></div>
+      <h3>Disposable Vapes</h3>
+      <p>500+ Products</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <div class="cat-icon"><i class="fas fa-microchip"></i></div>
+      <h3>IQOS Devices</h3>
+      <p>ILUMA & ILUMA i Series</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <span class="cat-badge">New</span>
+      <div class="cat-icon"><i class="fas fa-smoking"></i></div>
+      <h3>TEREA & HEETS</h3>
+      <p>60+ Flavors</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <div class="cat-icon"><i class="fas fa-cube"></i></div>
+      <h3>Pod Devices</h3>
+      <p>All Top Brands</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <div class="cat-icon"><i class="fas fa-flask"></i></div>
+      <h3>E-Liquids</h3>
+      <p>Premium Juices</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <div class="cat-icon"><i class="fas fa-tools"></i></div>
+      <h3>Hardware & Kits</h3>
+      <p>Mods & Tanks</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <div class="cat-icon"><i class="fas fa-leaf"></i></div>
+      <h3>Nic Pouches</h3>
+      <p>Smoke-Free Option</p>
+    </a>
+    <a href="#" class="cat-card fade-in">
+      <div class="cat-icon"><i class="fas fa-ellipsis"></i></div>
+      <h3>Accessories</h3>
+      <p>Coils, Pods & More</p>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-header fade-in">
+    <div class="section-tag"><i class="fas fa-circle"></i> BEST SELLERS</div>
+    <h2 class="section-title">Top Picks This Week</h2>
+    <p class="section-desc">Our most popular products loved by thousands of customers across UAE</p>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-wind"></i>
+        <span class="product-tag tag-hot">HOT</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">Disposable</div>
+        <div class="product-name">Elf Bar BC10000 — Watermelon Ice</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(128)</span></div>
+        <div class="product-price"><span class="current">AED 89</span><span class="old">AED 120</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> 2hr delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-microchip"></i>
+        <span class="product-tag tag-sale">-20%</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">IQOS Device</div>
+        <div class="product-name">IQOS ILUMA i One — Sunset Red</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(86)</span></div>
+        <div class="product-price"><span class="current">AED 199</span><span class="old">AED 249</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> 2hr delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-smoking"></i>
+        <span class="product-tag tag-new">NEW</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">TEREA</div>
+        <div class="product-name">TEREA Amber — Kazakhstan Edition</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(204)</span></div>
+        <div class="product-price"><span class="current">AED 120</span><span class="old">AED 140</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> Same day</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-cube"></i>
+        <span class="product-tag tag-hot">BEST</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">Pod Device</div>
+        <div class="product-name">Vaporesso LUXE X Pro — Black</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span>(67)</span></div>
+        <div class="product-price"><span class="current">AED 159</span><span class="old">AED 199</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> 2hr delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-wind"></i>
+        <span class="product-tag tag-sale">-25%</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">Disposable</div>
+        <div class="product-name">Al Fakher Crown Bar 15000 — Grape Ice</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(312)</span></div>
+        <div class="product-price"><span class="current">AED 75</span><span class="old">AED 100</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> 2hr delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-flask"></i>
+        <span class="product-tag tag-new">NEW</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">E-Liquid</div>
+        <div class="product-name">Pod Salt Nexus — Blue Razz Lemonade 30ml</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(95)</span></div>
+        <div class="product-price"><span class="current">AED 55</span><span class="old">AED 70</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> Same day</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-microchip"></i>
+        <span class="product-tag tag-sale">-15%</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">IQOS Device</div>
+        <div class="product-name">IQOS ILUMA Prime — Jade Green</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(156)</span></div>
+        <div class="product-price"><span class="current">AED 449</span><span class="old">AED 529</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> 2hr delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-img">
+        <i class="fas fa-wind"></i>
+        <span class="product-tag tag-hot">TOP</span>
+        <div class="product-actions">
+          <div class="product-action"><i class="fas fa-heart"></i></div>
+          <div class="product-action"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">Disposable</div>
+        <div class="product-name">Lost Mary BM16000 — Triple Mango</div>
+        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(89)</span></div>
+        <div class="product-price"><span class="current">AED 95</span><span class="old">AED 130</span></div>
+        <div class="product-footer">
+          <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          <div class="product-delivery"><i class="fas fa-truck"></i> 2hr delivery</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-header fade-in">
+    <div class="section-tag"><i class="fas fa-circle"></i> WHY CHOOSE US</div>
+    <h2 class="section-title">The VaporZone Difference</h2>
+    <p class="section-desc">Experience the best vape shopping in UAE with unmatched quality and service</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-in">
+      <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+      <h3>100% Authentic</h3>
+      <p>Every product is sourced directly from manufacturers. Factory-sealed, genuine items guaranteed.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+      <h3>2-Hour Delivery</h3>
+      <p>Lightning-fast delivery across Dubai. Same-day shipping to Abu Dhabi, Sharjah & all Emirates.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon"><i class="fas fa-tags"></i></div>
+      <h3>Best Price Guarantee</h3>
+      <p>Competitive prices lower than malls. Found it cheaper? We'll match it. Price promise on all products.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon"><i class="fas fa-headset"></i></div>
+      <h3>Expert Support</h3>
+      <p>Dedicated vape experts available via WhatsApp, call & live chat. Get personalized recommendations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery" id="delivery">
+  <div class="delivery-inner">
+    <div class="delivery-content fade-in">
+      <div class="section-tag"><i class="fas fa-circle"></i> DELIVERY COVERAGE</div>
+      <h2>We Deliver Across All UAE</h2>
+      <p>From Dubai Marina to Abu Dhabi Corniche — we've got you covered with the fastest vape delivery network in the Emirates.</p>
+      <div class="delivery-features">
+        <div class="del-feat"><i class="fas fa-bolt"></i><span>2-Hour Delivery in Dubai</span></div>
+        <div class="del-feat"><i class="fas fa-clock"></i><span>Same-Day to Abu Dhabi & Sharjah</span></div>
+        <div class="del-feat"><i class="fas fa-truck"></i><span>Next-Day to All Emirates</span></div>
+        <div class="del-feat"><i class="fas fa-gift"></i><span>FREE on Orders Above AED 100</span></div>
+        <div class="del-feat"><i class="fas fa-money-bill-wave"></i><span>Cash on Delivery Available</span></div>
+      </div>
+    </div>
+    <div class="delivery-map fade-in">
+      <div>
+        <div class="map-placeholder">
+          <i class="fas fa-map-location-dot"></i>
+          <p>Serving All 7 Emirates</p>
+        </div>
+        <div class="delivery-cities">
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>Dubai</span><span class="time">2 hrs</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>Abu Dhabi</span><span class="time">Same day</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>Sharjah</span><span class="time">Same day</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>Ajman</span><span class="time">Same day</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>Al Ain</span><span class="time">Next day</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>Fujairah</span><span class="time">Next day</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>RAK</span><span class="time">Next day</span></div>
+          <div class="delivery-city"><i class="fas fa-location-dot"></i><span>UAQ</span><span class="time">Next day</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header fade-in">
+    <div class="section-tag"><i class="fas fa-circle"></i> CUSTOMER REVIEWS</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-desc">Trusted by 50,000+ vapers across the UAE</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade-in">
+      <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="review-text">"Best vape shop in Dubai hands down! Ordered IQOS ILUMA and it arrived in 90 minutes. 100% authentic with factory seal. Will definitely order again."</p>
+      <div class="review-author">
+        <div class="review-avatar">AK</div>
+        <div><div class="review-name">Ahmed K.</div><div class="review-loc">Dubai Marina</div></div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="review-text">"Amazing variety of TEREA flavors, including rare Kazakhstan editions. Prices are much better than mall shops. Free delivery was a nice bonus!"</p>
+      <div class="review-author">
+        <div class="review-avatar">SM</div>
+        <div><div class="review-name">Sarah M.</div><div class="review-loc">Abu Dhabi</div></div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i></div>
+      <p class="review-text">"Great customer service on WhatsApp! They helped me choose the right pod system. Fast delivery to Sharjah same day. Highly recommended."</p>
+      <div class="review-author">
+        <div class="review-avatar">MR</div>
+        <div><div class="review-name">Mohammed R.</div><div class="review-loc">Sharjah</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands">
+  <div class="brands-inner">
+    <div class="brands-title">Trusted Brands We Carry</div>
+    <div class="brands-grid">
+      <div class="brand-item">IQOS</div>
+      <div class="brand-item">TEREA</div>
+      <div class="brand-item">Elf Bar</div>
+      <div class="brand-item">RELX</div>
+      <div class="brand-item">Vaporesso</div>
+      <div class="brand-item">Lost Mary</div>
+      <div class="brand-item">Pod Salt</div>
+      <div class="brand-item">Al Fakher</div>
+      <div class="brand-item">MYLE</div>
+      <div class="brand-item">Tugboat</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-box fade-in">
+    <h2>Ready to Upgrade Your Vape Experience?</h2>
+    <p>Join 50,000+ satisfied customers. Order now and get same-day delivery across UAE.</p>
+    <a href="#products" class="btn"><i class="fas fa-shopping-bag"></i> Shop All Products</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <div class="logo-icon">VZ</div>
+        <div class="logo-text">Vapor<span>Zone</span></div>
+      </a>
+      <p>UAE's #1 online vape store. Premium vapes, IQOS, TEREA & e-liquids with same-day delivery across Dubai, Abu Dhabi & all Emirates.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#">Shop All</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Best Sellers</a>
+      <a href="#">Sale & Offers</a>
+      <a href="#">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="#">Disposable Vapes</a>
+      <a href="#">IQOS Devices</a>
+      <a href="#">TEREA & HEETS</a>
+      <a href="#">Pod Devices</a>
+      <a href="#">E-Liquids</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-phone"></i> +971 XX XXX XXXX</p>
+      <p><i class="fab fa-whatsapp"></i> +971 XX XXX XXXX</p>
+      <p><i class="fas fa-envelope"></i> info@vaporzonedubai.ae</p>
+      <p><i class="fas fa-location-dot"></i> Dubai, UAE</p>
+      <p><i class="fas fa-clock"></i> 10 AM – 12 AM Daily</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 VaporZone Dubai. All rights reserved.</p>
+    <div class="payment-methods">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fab fa-apple-pay"></i>
+      <i class="fab fa-google-pay"></i>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/971XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCROLL TO TOP -->
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</div>
+
+<script>
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('active');
+  document.getElementById('mobileMenu').classList.toggle('active');
+  document.getElementById('menuOverlay').classList.toggle('active');
+  document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('active')?'hidden':'';
+}
+
+// Navbar scroll
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('navbar');
+  const scrollTop=document.getElementById('scrollTop');
+  const y=window.scrollY;
+  nav.classList.toggle('scrolled',y>50);
+  scrollTop.classList.toggle('visible',y>500);
+  lastScroll=y;
+});
+
+// Intersection Observer for fade-in
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Particles
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(8+Math.random()*12)+'s';
+    p.style.animationDelay=Math.random()*10+'s';
+    p.style.width=p.style.height=(2+Math.random()*4)+'px';
+    if(Math.random()>.5)p.style.background='#7c3aed';
+    c.appendChild(p);
+  }
+})();
+
+// Add to cart animation
+document.querySelectorAll('.add-to-cart').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    const orig=this.innerHTML;
+    this.innerHTML='<i class="fas fa-check"></i> Added!';
+    this.style.background='#27ae60';
+    setTimeout(()=>{this.innerHTML=orig;this.style.background=''},1500);
+  });
+});
+</script>
+</body>
+</html>
